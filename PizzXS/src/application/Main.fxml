@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: rgb(30, 30, 30);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="32.0" layoutY="113.0" prefHeight="440.0" prefWidth="750.0" style="-fx-background-color: rgb(30, 30, 30);" vbarPolicy="NEVER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="750.0" style="-fx-background-color: rgb(27, 27, 27);" />
+        </content>
+      </ScrollPane>
+      <ScrollPane hbarPolicy="NEVER" layoutX="806.0" layoutY="113.0" prefHeight="440.0" prefWidth="190.0" style="-fx-background-color: rgb(30,30,30);" vbarPolicy="NEVER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-color: rgb(27,27,27);" />
+        </content>
+      </ScrollPane>
+      <Pane prefHeight="65.0" prefWidth="1024.0" style="-fx-background-color: ORANGE;" />
+   </children>
+</AnchorPane>
