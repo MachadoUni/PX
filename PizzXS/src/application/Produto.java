@@ -13,11 +13,22 @@ public class Produto{
     }
     
     //Vars
-    private String nome;
+    private String nome = null;
     private double valor;
     private Tipo t;
     
     //Getters
+    public String getDescrição() {
+    	switch(this.t) {
+    	case Tipo.Pizza:
+    		return ("Pizza: " + this.nome);
+    	case Tipo.Bebida:
+    		return ("Bebida: " + this.nome);
+    	default:
+    		return ("Sem descrição");
+    	}
+    }
+    
     public String getNome() {
     	return this.nome;
     }

@@ -12,7 +12,7 @@
       <Pane prefHeight="65.0" prefWidth="1024.0" style="-fx-background-color: ORANGE;" />
       <Button layoutX="334.0" layoutY="459.0" mnemonicParsing="false" onAction="#trocarParaPrincipal" prefHeight="42.0" prefWidth="150.0" text="Adicionar pedido" />
       <ChoiceBox fx:id="caixaEscolhaPizza" layoutX="334.0" layoutY="182.0" prefHeight="42.0" prefWidth="356.0" />
-      <Button layoutX="540.0" layoutY="459.0" mnemonicParsing="false" onAction="#trocarParaPrincipal" prefHeight="42.0" prefWidth="150.0" text="Cancelar" />
+      <Button layoutX="540.0" layoutY="459.0" mnemonicParsing="false" onAction="#cancelarParaPrincipal" prefHeight="42.0" prefWidth="150.0" text="Cancelar" />
       <Label alignment="CENTER" layoutX="317.0" layoutY="81.0" prefHeight="65.0" prefWidth="390.0" text="Novo Pedido" textFill="WHITE">
          <font>
             <Font size="52.0" />

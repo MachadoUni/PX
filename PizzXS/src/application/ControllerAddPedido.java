@@ -27,6 +27,11 @@ public class ControllerAddPedido implements Initializable{
 	@FXML
 	private Label labelValor;
 	
+	
+	private ArrayList<Pedido> listaPedidos;
+	public void setPedidos(ArrayList<Pedido> p) {
+		this.listaPedidos = p;
+	}
 	private ArrayList<Produto> menuCompleto = new ArrayList<Produto>();
 
 	@Override
@@ -57,10 +62,14 @@ public class ControllerAddPedido implements Initializable{
 	}
 	
 	public void EncherLista() {
-		menuCompleto.add(new Produto("Pizza 1", 40, Tipo.Pizza));
-		menuCompleto.add(new Produto("Pizza 2", 30, Tipo.Pizza));
-		menuCompleto.add(new Produto("Pizza 3", 70, Tipo.Pizza));
+		menuCompleto.add(new Produto("Pepperoni", 60, Tipo.Pizza));
+		menuCompleto.add(new Produto("Calabresa", 50, Tipo.Pizza));
+		menuCompleto.add(new Produto("Queijo e Orégano", 40, Tipo.Pizza));
+		menuCompleto.add(new Produto("Frango", 70, Tipo.Pizza));
 		menuCompleto.add(new Produto("Água", 3.50, Tipo.Bebida));
+		menuCompleto.add(new Produto("Guaraná Lata", 6.25, Tipo.Bebida));
+		menuCompleto.add(new Produto("Coca Lata", 7.00, Tipo.Bebida));
+		menuCompleto.add(new Produto("Garrafa de Vinho", 34.90, Tipo.Bebida));
 	}
 	
 	public String[] listaStringPizzas(ArrayList<Produto> listaProdutos) {
@@ -97,16 +106,60 @@ public class ControllerAddPedido implements Initializable{
 		return listaStrings;
 	}
 	
+	// Vars para trocar de cena
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
+	// Função para voltar a tela principal adicionando o pedido
 	public void trocarParaPrincipal(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+		root = loader.load();
+		Controller controller = loader.getController();
+		
+		controller.setPedidos(LerAddPedidos());
+		controller.showPedidos();
+		
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public void cancelarParaPrincipal(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+		root = loader.load();
+		Controller controller = loader.getController();
+		
+		controller.setPedidos(this.listaPedidos);
+		controller.showPedidos();
+		
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	public ArrayList<Pedido> LerAddPedidos() {
+		ArrayList<Pedido> ps = this.listaPedidos;
+		Produto p1 = null;
+		Produto p2 = null;
+		for(Produto p : menuCompleto) {
+			if (caixaEscolhaPizza.getValue() == p.getNome()) {
+				p1 = p;
+			}
+			if (caixaEscolhaBebida.getValue() == p.getNome()) {
+				p2 = p;
+			}
+		}
+		if(p1 != null && p2!= null) {
+			ps.add(new Pedido(p1, p2));
+		}else if(p1 != null){
+			ps.add(new Pedido(p1));
+		}else if(p2 != null){
+			ps.add(new Pedido(p2));
+		}
+		return ps;
 	}
 	
 	// private void AddPedido(Pedido pedido){}

@@ -1,31 +1,25 @@
 package application;
 import java.util.ArrayList;
+
+//import application.Produto.Tipo;
 public class Pedido{
     
     // Construtor base (não delivery)
 	public Pedido(Produto p1){
-        this.pizza = p1;
+		produtos.add(p1);
         this.valor = p1.getValor();
     }
 	public Pedido(Produto p1, Produto p2){
-        this.pizza = p1;
-        this.bebida = p2;
+        produtos.add(p1);
+        produtos.add(p2);
         this.valor = p1.getValor() + p2.getValor();
-    }
-    
-    // Construtor com endereço (para delivery)
-    public Pedido(ArrayList<Produto> produtos, Endereco endereco){
-        this.endereco = endereco;
-        for(Produto produto : produtos){
-            this.valor += produto.getValor();
-        }
     }
     
     //	Variáveis
     private double valor;
-    private Produto pizza;
-    private Produto bebida;
-    private Endereco endereco;
+    private ArrayList<Produto> produtos = new ArrayList<Produto>();
+    private Produto pizza = null;
+    private Produto bebida = null;
     
     //	Getters
     public double getValor() {
@@ -37,8 +31,8 @@ public class Pedido{
     public Produto getBebida(){
     	return this.bebida;
     }
-    public Endereco getEndereco() {
-    	return this.endereco;
+    public ArrayList<Produto> getLista(){
+    	return this.produtos;
     }
     
 }
