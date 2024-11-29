@@ -1,5 +1,7 @@
 package application;
 	
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -11,16 +13,17 @@ import javafx.scene.Scene;
 
 public class Main extends Application {
 	
+	public ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
-
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
-		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("AddPedido.fxml"));
 		Scene scene = new Scene(root);
 		
 		primaryStage.setTitle("PizSystem - by ByteX");
