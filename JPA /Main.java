@@ -10,7 +10,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-        stage.setTitle("Minha Aplicação JavaFX");
+        stage.setTitle(" PizzaX");
         stage.show();
     }
 
