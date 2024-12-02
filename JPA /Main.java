@@ -1,4 +1,4 @@
-package com.seuNome.javafxApp;
+package com.Pizzax.javafxApp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
