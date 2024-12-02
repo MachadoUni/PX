@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: rgb(30, 30, 30);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerAddPedido">
    <children>
       <Pane prefHeight="65.0" prefWidth="1024.0" style="-fx-background-color: ORANGE;" />
-      <Button layoutX="334.0" layoutY="459.0" mnemonicParsing="false" onAction="#trocarParaPrincipal" prefHeight="42.0" prefWidth="150.0" text="Adicionar pedido" />
+      <Button layoutX="334.0" layoutY="459.0" mnemonicParsing="false" onAction="#adiconarPedidoParaPrincipal" prefHeight="42.0" prefWidth="150.0" text="Adicionar pedido" />
       <ChoiceBox fx:id="caixaEscolhaPizza" layoutX="334.0" layoutY="182.0" prefHeight="42.0" prefWidth="356.0" />
       <Button layoutX="540.0" layoutY="459.0" mnemonicParsing="false" onAction="#cancelarParaPrincipal" prefHeight="42.0" prefWidth="150.0" text="Cancelar" />
       <Label alignment="CENTER" layoutX="317.0" layoutY="81.0" prefHeight="65.0" prefWidth="390.0" text="Novo Pedido" textFill="WHITE">

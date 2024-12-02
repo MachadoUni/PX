@@ -17,9 +17,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-
 public class ControllerAddPedido implements Initializable{
 
+	//	Vars FXML
 	@FXML
 	private ChoiceBox<String> caixaEscolhaPizza;
 	@FXML
@@ -27,24 +27,26 @@ public class ControllerAddPedido implements Initializable{
 	@FXML
 	private Label labelValor;
 	
-	
+	//	Lista de pedidos (Trocado entre controladores)
 	private ArrayList<Pedido> listaPedidos;
 	public void setPedidos(ArrayList<Pedido> p) {
 		this.listaPedidos = p;
 	}
+	// Declaração do Menu de Produtos
 	private ArrayList<Produto> menuCompleto = new ArrayList<Produto>();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		EncherLista();
-		String[] a = listaStringPizzas(menuCompleto);
-		String[] b = listaStringBebidas(menuCompleto);
+		String[] a = arrayStringPizzas(menuCompleto);
+		String[] b = arrayStringBebidas(menuCompleto);
 		caixaEscolhaPizza.getItems().addAll(a);
 		caixaEscolhaBebida.getItems().addAll(b);
 		caixaEscolhaPizza.setOnAction(this::setPreco);
 		caixaEscolhaBebida.setOnAction(this::setPreco);
 	}
 	
+	//	Altualiza a label de valor da compra
 	public void setPreco(ActionEvent event) {
 		String pizza = caixaEscolhaPizza.getValue();
 		String bebida = caixaEscolhaBebida.getValue();
@@ -58,21 +60,28 @@ public class ControllerAddPedido implements Initializable{
 				b = menuCompleto.get(i).getValor();
 		}
 		
-		labelValor.setText("Valor: R$" + (p+b));
+		labelValor.setText("Valor: R$" + String.format("%.2f",(p+b)));
 	}
 	
+	//	Adiona produtos ao menu
 	public void EncherLista() {
-		menuCompleto.add(new Produto("Pepperoni", 60, Tipo.Pizza));
-		menuCompleto.add(new Produto("Calabresa", 50, Tipo.Pizza));
-		menuCompleto.add(new Produto("Queijo e Orégano", 40, Tipo.Pizza));
-		menuCompleto.add(new Produto("Frango", 70, Tipo.Pizza));
+		//	Pizzas
+		menuCompleto.add(new Produto("Pepperoni", 59.90, Tipo.Pizza));
+		menuCompleto.add(new Produto("Mussarela", 64.90, Tipo.Pizza));
+		menuCompleto.add(new Produto("Calabresa", 56.90, Tipo.Pizza));
+		menuCompleto.add(new Produto("Frango com Catupiry", 67.90, Tipo.Pizza));
+		menuCompleto.add(new Produto("Portuguesa", 69.90, Tipo.Pizza));
+		menuCompleto.add(new Produto("Champignon", 59.90, Tipo.Pizza));
+		//	Bebidas
 		menuCompleto.add(new Produto("Água", 3.50, Tipo.Bebida));
 		menuCompleto.add(new Produto("Guaraná Lata", 6.25, Tipo.Bebida));
 		menuCompleto.add(new Produto("Coca Lata", 7.00, Tipo.Bebida));
 		menuCompleto.add(new Produto("Garrafa de Vinho", 34.90, Tipo.Bebida));
+		menuCompleto.add(new Produto("Cerveja Lata", 9.90, Tipo.Bebida));
 	}
 	
-	public String[] listaStringPizzas(ArrayList<Produto> listaProdutos) {
+	//	Pegar os nomes de todas as pizzas no menu e converter numa Array de String
+	public String[] arrayStringPizzas(ArrayList<Produto> listaProdutos) {
 		int s = 0;
 		for(int i = 0; i < listaProdutos.size(); i++) {
 			if(listaProdutos.get(i).getTipo() == Tipo.Pizza)
@@ -89,7 +98,8 @@ public class ControllerAddPedido implements Initializable{
 		return listaStrings;
 	}
 	
-	public String[] listaStringBebidas(ArrayList<Produto> listaProdutos) {
+	//	Pegar os nomes de todas as bebidas no menu e converter numa Array de String
+	public String[] arrayStringBebidas(ArrayList<Produto> listaProdutos) {
 		int s = 0;
 		for(int i = 0; i < listaProdutos.size(); i++) {
 			if(listaProdutos.get(i).getTipo() == Tipo.Bebida)
@@ -112,7 +122,7 @@ public class ControllerAddPedido implements Initializable{
 	private Parent root;
 	
 	// Função para voltar a tela principal adicionando o pedido
-	public void trocarParaPrincipal(ActionEvent event) throws IOException {
+	public void adiconarPedidoParaPrincipal(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		root = loader.load();
 		Controller controller = loader.getController();
@@ -126,6 +136,7 @@ public class ControllerAddPedido implements Initializable{
 		stage.show();
 	}
 	
+	// Função para voltar a tela principal sem adicionar o pedido
 	public void cancelarParaPrincipal(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		root = loader.load();
@@ -140,6 +151,7 @@ public class ControllerAddPedido implements Initializable{
 		stage.show();
 	}
 	
+	//	Lê as informações das ChooseBox acha o item equivalente e adiciona na lista de pedidos
 	public ArrayList<Pedido> LerAddPedidos() {
 		ArrayList<Pedido> ps = this.listaPedidos;
 		Produto p1 = null;
@@ -161,7 +173,4 @@ public class ControllerAddPedido implements Initializable{
 		}
 		return ps;
 	}
-	
-	// private void AddPedido(Pedido pedido){}
-	
 }
