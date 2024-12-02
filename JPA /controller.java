@@ -1,4 +1,4 @@
-package com.seuNome.javafxApp;
+package com.Pizzax.javafxApp;
 
 import com.seuNome.api.ApiService;
 import com.seuNome.api.models.Pizza;
