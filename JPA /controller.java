@@ -1,7 +1,7 @@
 package com.Pizzax.javafxApp;
 
-import com.seuNome.api.ApiService;
-import com.seuNome.api.models.Pizza;
+import com.Pizzax.api.ApiService;
+import com.Pizzax.api.models.Pizza;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
