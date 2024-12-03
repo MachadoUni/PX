@@ -1,4 +1,5 @@
 package com.Pizzax.javafxApp;
+
 import com.Pizzax.api.ApiService;
 import com.Pizzax.api.models.Pizza;
 import com.Pizzax.api.models.Bebida;
@@ -12,31 +13,30 @@ public class Controller {
     private ListView<String> pizzaListView;
 
     public void initialize() {
- 
+
+       
         String pizzaData = ApiService.getDataFromApi("pizzas");
         String bebidaData = ApiService.getDataFromApi("bebidas");
         String massaData = ApiService.getDataFromApi("massas");
         String sobremesaData = ApiService.getDataFromApi("sobremesas");
 
-    
+
         Pizza pizza = new Pizza();
         pizza.setNome(pizzaData);
         pizza.setPreco(20.5);
-        pizzaListView.getItems().add("Pizza Portuguesa : " + pizza.getNome() + " - R$" + pizza.getPreco());
-
 
         Bebida bebida = new Bebida("Coca-Cola", 7.5);
-        pizzaListView.getItems().add("Bebida: " + bebida.getNome() + " - R$" + bebida.getPreco());
-
-
         Massa massa = new Massa("Borda de Chocolate", 25.0);
-        pizzaListView.getItems().add("Massa: " + massa.getNome() + " - R$" + massa.getPreco());
-
- 
         Sobremesa sobremesa = new Sobremesa("Petit Gateu", 15.0);
+
+    
+        pizzaListView.getItems().clear();
+
+        pizzaListView.getItems().add("Pizza Portuguesa: " + pizza.getNome() + " - R$" + pizza.getPreco());
+        pizzaListView.getItems().add("Bebida: " + bebida.getNome() + " - R$" + bebida.getPreco());
+        pizzaListView.getItems().add("Massa: " + massa.getNome() + " - R$" + massa.getPreco());
         pizzaListView.getItems().add("Sobremesa: " + sobremesa.getNome() + " - R$" + sobremesa.getPreco());
     }
 }
 
-}
 // chamada à API  para exibição no JavaFX.
