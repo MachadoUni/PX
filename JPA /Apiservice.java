@@ -38,15 +38,7 @@ public class ApiService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-          
-public void initialize() {
-    ApiService apiService = new ApiService();
-    List<Produto> menuCompleto = apiService.getMenu();  
 
-    for (Produto produto : menuCompleto) {
-        pizzaListView.getItems().add(String.format("%s: %s - R$%.2f", 
-            produto.getTipo(), produto.getNome(), produto.getPreco()));
-    }
         }
     }
 }
