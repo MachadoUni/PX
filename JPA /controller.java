@@ -22,18 +22,18 @@ public class Controller {
         Pizza pizza = new Pizza();
         pizza.setNome(pizzaData);
         pizza.setPreco(20.5);
-        pizzaListView.getItems().add("Pizza: " + pizza.getNome() + " - R$" + pizza.getPreco());
+        pizzaListView.getItems().add("Pizza Portuguesa : " + pizza.getNome() + " - R$" + pizza.getPreco());
 
 
         Bebida bebida = new Bebida("Coca-Cola", 7.5);
         pizzaListView.getItems().add("Bebida: " + bebida.getNome() + " - R$" + bebida.getPreco());
 
 
-        Massa massa = new Massa("Lasanha", 25.0);
+        Massa massa = new Massa("Borda de Chocolate", 25.0);
         pizzaListView.getItems().add("Massa: " + massa.getNome() + " - R$" + massa.getPreco());
 
  
-        Sobremesa sobremesa = new Sobremesa("Tiramisu", 15.0);
+        Sobremesa sobremesa = new Sobremesa("Petit Gateu", 15.0);
         pizzaListView.getItems().add("Sobremesa: " + sobremesa.getNome() + " - R$" + sobremesa.getPreco());
     }
 }
