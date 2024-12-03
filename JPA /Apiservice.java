@@ -4,6 +4,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
+
+
+public void initialize() {
+    ApiService apiService = new ApiService();
+    List<Produto> menuCompleto = apiService.getMenu();  
+
+    for (Produto produto : menuCompleto) {
+        pizzaListView.getItems().add(String.format("%s: %s - R$%.2f", 
+            produto.getTipo(), produto.getNome(), produto.getPreco()));
+    }
+
 public class ApiService {
     private static final String API_URL = "https://api.exemplo.com/dados";
 
@@ -35,8 +47,6 @@ public void initialize() {
         pizzaListView.getItems().add(String.format("%s: %s - R$%.2f", 
             produto.getTipo(), produto.getNome(), produto.getPreco()));
     }
-}
-
         }
     }
 }
